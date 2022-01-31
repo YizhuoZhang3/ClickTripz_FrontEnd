@@ -13,10 +13,10 @@ export default function Home(){
       <div className="left-section">
         <img id="ctzlogo" src="https://digitalknack.com/wp-content/themes/digitalknack/dk-images/cases/clicktripz/logo.png" alt="logo"/>
         <ul className="titles-list">
-          <li><FaHome/>Overview</li>
-          <li><FiSettings/>Setting</li>
-          <li><FaConnectdevelop/>Site1</li>
-          <li><FaGg/>Site2</li>
+          <li><FaHome id="icon"/>Overview</li>
+          <li><FiSettings id="icon"/>Setting</li>
+          <li><FaConnectdevelop id="icon"/>Site1</li>
+          <li><FaGg id="icon"/>Site2</li>
         </ul>
       </div>
 
@@ -25,13 +25,12 @@ export default function Home(){
           <h2>Company Information</h2>
         </div>
         <div className="content">
-          <h3>Company Name</h3>
-          <h3>Location</h3>
-          <h3>Organization ID</h3>
-          <h3>Phone</h3>
-          <h3>Bio</h3>
+          <h3 className="comp-info" id="company-name">Company Name</h3>
+          <h3 className="comp-info" id="company-loca">Location</h3>
+          <h3 className="comp-info" id="company-id">Organization ID</h3>
+          <h3 className="comp-info" id="company-phone">Phone</h3>
+          <h3 className="comp-info" id="company-bio">Bio</h3>
         </div>
-        
       </div>
     </div>
   )
