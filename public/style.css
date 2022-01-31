@@ -11,7 +11,7 @@ h2{
 }
 
 h3{
-  color:#06D6A0;
+
 }
 
 .home-container{
@@ -72,6 +72,16 @@ h3{
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 3fr;
+}
+
+.content label{
+  color:#06D6A0;
+  display: flex;
+  flex-direction: column;
+}
+
+.content input{
+  margin: 0.5em 0;
 }
 
 .comp-info{
