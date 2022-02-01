@@ -17,12 +17,23 @@ export default function Home(){
     }))
    }, []);
   
-  
   console.log(allData);
 
   const handleSubmit = (event) => {
     event.preventDefault();
   }
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setData((prevState) => {
+      return {
+        ...prevState,
+        [name]: value,
+      };
+    });
+  }
+
+  const {name, location, organizationId, phoneNumber, bio} = allData;
 
   return (
     <div className="home-container">
@@ -42,23 +53,22 @@ export default function Home(){
         </div>
 
       <div className="content">
-        <form className="comp-form" onChange={handleSubmit} >
+        <form className="comp-form" onSubmit={handleSubmit} >
           <label htmlFor="name">Company Name
-          <input type="text" id="name" value={allData.name || ''} onChange={e=>setData(e.target.value)}/></label>
+          <input type="text" name="name" value={name} onChange={handleChange} required/></label>
           
           <label htmlFor="location">Location
-          <input type="text" id="location" value={allData.location || ''} onChange={e=>setData(e.target.value)}/></label>
+          <input type="text" name="location" value={location} onChange={handleChange} /></label>
    
           <label htmlFor="org-id">Organization ID
-          <input type="text" id="org-id" value={allData.organizationId || ''} onChange={e=>setData(e.target.value)}/></label>
+          <input type="text" name="organizationId" value={organizationId} onChange={handleChange} required/></label>
 
           <label htmlFor="phone">Phone
-          <input type="tel" id="phone" value={allData.phoneNumber || ''} onChange={e=>setData(e.target.value)}/></label>
+          <input type="tel" name="phoneNumber" value={phoneNumber} onChange={handleChange}/></label>
  
-          <label htmlFor="bio">Bio
-          <input type="text" id="bio" value={allData.bio || ''} onChange={e=>setData(e.target.value)}/></label>
+          <label id="bio" htmlFor="bio">Bio
+          <input id="bio-input" type="text" name="bio" value={bio} onChange={handleChange}/></label>
 
-          <input type="submit" value="Submit" />
         </form>
       </div>
       </div>
