@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import data from "../data.json";
 import { FaHome } from "react-icons/fa";
 import { FiSettings } from "react-icons/fi";
@@ -6,7 +6,23 @@ import { FaConnectdevelop } from "react-icons/fa";
 import { FaGg } from "react-icons/fa";
 
 export default function Home(){
-  console.log(data);
+  const [allData, setData] = useState(data);
+
+  useEffect(() => {
+    setData((prev) => ({
+      ...prev,
+      phoneNumber: '917-232-2323',
+      bio: 'ClickTripz is a travel technology company that builds innovative software solutions to serve the needs of suppliers, publishers, advertisers and travelers. From marketplaces that connect the industry through proprietary ad-serving technology, to cloud-based tools that help hoteliers put heads in beds-- ClickTripz has solutions that drive revenue atscale. Travelers benefit from the transparent and efficient pricing facilitated by the platform, while suppliers, publishers and advertisers all benefit from the enhanced ability to acquire and monetize qualified traffic using precise targeting and granular bidding. Founded in 2010 and with offices in California, Washington DC and London, the platform currently comprises thousands of active campaigns from worldwide partners, spanning 31 different languages and addressing tens of millions of travel queries per month.',
+      location: 'New York'
+    }))
+   }, []);
+  
+  
+  console.log(allData);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  }
 
   return (
     <div className="home-container">
@@ -25,31 +41,26 @@ export default function Home(){
           <h2>Company Information</h2>
         </div>
 
-        <form className="content">
-          <label className="comp-info" id="company-name" for="name">
-            Company Name
-            <input type="text" id="name" value={data.name} required/>
-          </label>
-      
-          <label className="comp-info" id="company-loca" for="location">
-            Location
-            <input type="text" id="location" value={"New York"}/>
-          </label>
-           
-          <label className="comp-info" id="company-id" for="org-id">Organization ID
-          <input type="text" id="org-id" value={data.organizationId}/>
-          </label>
+      <div className="content">
+        <form className="comp-form" onChange={handleSubmit} >
+          <label htmlFor="name">Company Name
+          <input type="text" id="name" value={allData.name || ''} onChange={e=>setData(e.target.value)}/></label>
           
-          <label className="comp-info" id="company-phone" for="phone">Phone
-          <input type="tel" id="phone" value={"917-232-2323"}/>
-          </label>
-          
-          <label className="comp-info" id="company-bio" for="bio">Bio
-          <input type="text" id="bio" value={"ClickTripz is a travel technology company that builds innovative software solutions to serve the needs of suppliers, publishers, advertisers and travelers. From marketplaces that connect the industry through proprietary ad-serving technology, to cloud-based tools that help hoteliers put heads in beds-- ClickTripz has solutions that drive revenue atscale. Travelers benefit from the transparent and efficient pricing facilitated by the platform, while suppliers, publishers and advertisers all benefit from the enhanced ability to acquire and monetize qualified traffic using precise targeting and granular bidding. Founded in 2010 and with offices in California, Washington DC and London, the platform currently comprises thousands of active campaigns from worldwide partners, spanning 31 different languages and addressing tens of millions of travel queries per month."}/>
-          </label>
-          <button>SAVE</button>
+          <label htmlFor="location">Location
+          <input type="text" id="location" value={allData.location || ''} onChange={e=>setData(e.target.value)}/></label>
+   
+          <label htmlFor="org-id">Organization ID
+          <input type="text" id="org-id" value={allData.organizationId || ''} onChange={e=>setData(e.target.value)}/></label>
+
+          <label htmlFor="phone">Phone
+          <input type="tel" id="phone" value={allData.phoneNumber || ''} onChange={e=>setData(e.target.value)}/></label>
+ 
+          <label htmlFor="bio">Bio
+          <input type="text" id="bio" value={allData.bio || ''} onChange={e=>setData(e.target.value)}/></label>
+
+          <input type="submit" value="Submit" />
         </form>
-        
+      </div>
       </div>
     </div>
   )
