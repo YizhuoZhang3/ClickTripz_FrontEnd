@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from "react";
+import {Route, Link} from "react-router-dom";
 import data from "../data.json";
 import { FaHome } from "react-icons/fa";
 import { FiSettings } from "react-icons/fi";
 import { FaConnectdevelop } from "react-icons/fa";
 import { FaGg } from "react-icons/fa";
+import CompanyInfo from "./CompanyInfo";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import Setting from "./Setting";
+import Site1 from "./Site1";
+import Site2 from "./Site2";
 
 export default function Home(){
   const [allData, setData] = useState(data);
@@ -33,45 +39,40 @@ export default function Home(){
     });
   }
 
-  const {name, location, organizationId, phoneNumber, bio} = allData;
-
   return (
     <div className="home-container">
-      <div className="left-section">
+      <Tabs>
+        <TabList>
         <img id="ctzlogo" src="https://digitalknack.com/wp-content/themes/digitalknack/dk-images/cases/clicktripz/logo.png" alt="logo"/>
-        <ul className="titles-list">
-          <li><FaHome id="icon"/>Overview</li>
-          <li><FiSettings id="icon"/>Setting</li>
-          <li><FaConnectdevelop id="icon"/>Site1</li>
-          <li><FaGg id="icon"/>Site2</li>
-        </ul>
-      </div>
+          <Tab>
+            <p><FaHome id="icon"/>Overview</p>
+          </Tab>
+          <Tab>
+            <p><FiSettings id="icon"/>Setting</p>
+          </Tab>
+          <Tab>
+            <p><FaConnectdevelop id="icon"/>Site1</p>
+          </Tab>
+          <Tab>
+            <p><FaGg id="icon"/>Site2</p>
+          </Tab>
+        </TabList>
+      
 
-      <div className="right-section">
-        <div className="heading">
-          <h2>Company Information</h2>
-        </div>
+        <TabPanel>
+          <CompanyInfo allData={allData} handleSubmit={handleSubmit} handleChange={handleChange}/>
+        </TabPanel>
+        <TabPanel>
+          <Setting data={allData}/>
+        </TabPanel>
+        <TabPanel>
+          <Site1 data={allData}/>
+        </TabPanel>
+        <TabPanel>
+          <Site2 data={allData}/>
+        </TabPanel>
 
-      <div className="content">
-        <form className="comp-form" onSubmit={handleSubmit} >
-          <label htmlFor="name">COMPANY NAME
-          <input type="text" name="name" value={name} onChange={handleChange} required/></label>
-          
-          <label htmlFor="location">LOCATION
-          <input type="text" name="location" value={location} onChange={handleChange} /></label>
-   
-          <label htmlFor="org-id">ORGANIZATION ID
-          <input type="text" name="organizationId" value={organizationId} onChange={handleChange} required/></label>
-
-          <label htmlFor="phone">PHONE
-          <input type="tel" name="phoneNumber" value={phoneNumber} onChange={handleChange}/></label>
- 
-          <label id="bio" htmlFor="bio">BIO
-          <textarea type="text" name="bio" value={bio} onChange={handleChange}/></label>
-
-        </form>
-      </div>
-      </div>
+      </Tabs>
     </div>
   )
 }
