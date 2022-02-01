@@ -67,7 +67,7 @@ export default function Home(){
           <input type="tel" name="phoneNumber" value={phoneNumber} onChange={handleChange}/></label>
  
           <label id="bio" htmlFor="bio">Bio
-          <input id="bio-input" type="text" name="bio" value={bio} onChange={handleChange}/></label>
+          <textarea type="text" name="bio" value={bio} onChange={handleChange}/></label>
 
         </form>
       </div>
