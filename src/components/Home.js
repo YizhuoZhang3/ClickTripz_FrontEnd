@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import {Route, Link} from "react-router-dom";
 import data from "../data.json";
 import { FaHome } from "react-icons/fa";
 import { FiSettings } from "react-icons/fi";

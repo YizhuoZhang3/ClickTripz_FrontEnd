@@ -159,3 +159,33 @@ h3{
   font-weight: lighter;
 }
 
+/* Site 1 styling */
+.heading-site1{
+  width: 100%;
+  padding: 4em 20em 6em 3em;
+  background-color: #1E9AAA;
+  position: relative;
+}
+
+.top-sec label{
+  color: #1E9AAA;
+}
+
+.site1{
+  margin: 3em 6em;
+}
+
+.bottom-sec{
+  text-align: center;
+}
+
+.site1-products{
+  display: flex;
+  justify-content: space-around;
+}
+
+.site1-products div{
+  width: 30%;
+  margin: 0 auto;
+  border: 1px #C8C6C6 solid;
+}
