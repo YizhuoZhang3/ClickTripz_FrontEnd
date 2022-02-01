@@ -150,3 +150,12 @@ h3{
   position: relative;
 }
 
+.setting{
+  margin: 3em 6em;
+}
+
+.setting h3{
+  color: #FDB000;
+  font-weight: lighter;
+}
+

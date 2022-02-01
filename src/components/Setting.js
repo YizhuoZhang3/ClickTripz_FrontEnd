@@ -7,26 +7,25 @@ export default function Setting({data}){
         <h2>Setting</h2>
       </div>
       <div className="content">
-        <div>
-          <h2>General</h2>
-          <ul>
-            <li>Enabled</li>
-            <li>Test Publisher</li>
-            <li>Time Zone</li>
-            <li>Account Type</li>
-        </ul>
-        </div>
+        <div className="setting">
+          <div>
+            <h3>General</h3>
+            <ul>
+              <li>Enabled</li>
+              <li>Test Publisher</li>
+              <li>Time Zone</li>
+              <li>Account Type</li>
+          </ul>
+          </div>
 
-        <div>
-          <h2>Revenue</h2>
-        </div>
-        
-        <div>
-          <h2>Document</h2>
-        </div>
-      
-        
+          <div>
+            <h3>Revenue</h3>
+          </div>
 
+          <div>
+            <h3>Document</h3>
+          </div>
+        </div>
       </div>
     </div>
   )
