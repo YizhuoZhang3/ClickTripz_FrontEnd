@@ -79,6 +79,7 @@ h3{
 }
 
 .content label{
+  font-size: smaller;
   color:#06D6A0;
   display: flex;
   flex-direction: column;
@@ -87,6 +88,11 @@ h3{
 
 .content input{
   margin: 0.5em 0;
+  height: 2em;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom: 1.5px solid #C8C6C6;
 }
 
 #bio{
@@ -95,5 +101,9 @@ h3{
 
 .content textarea{
   height: 15vh;
+  overflow: auto;
+  resize: vertical; 
+  border: 1.5px solid #C8C6C6;
+  margin-top: 1em;
 }
 

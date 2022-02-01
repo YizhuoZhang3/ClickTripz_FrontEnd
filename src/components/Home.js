@@ -54,19 +54,19 @@ export default function Home(){
 
       <div className="content">
         <form className="comp-form" onSubmit={handleSubmit} >
-          <label htmlFor="name">Company Name
+          <label htmlFor="name">COMPANY NAME
           <input type="text" name="name" value={name} onChange={handleChange} required/></label>
           
-          <label htmlFor="location">Location
+          <label htmlFor="location">LOCATION
           <input type="text" name="location" value={location} onChange={handleChange} /></label>
    
-          <label htmlFor="org-id">Organization ID
+          <label htmlFor="org-id">ORGANIZATION ID
           <input type="text" name="organizationId" value={organizationId} onChange={handleChange} required/></label>
 
-          <label htmlFor="phone">Phone
+          <label htmlFor="phone">PHONE
           <input type="tel" name="phoneNumber" value={phoneNumber} onChange={handleChange}/></label>
  
-          <label id="bio" htmlFor="bio">Bio
+          <label id="bio" htmlFor="bio">BIO
           <textarea type="text" name="bio" value={bio} onChange={handleChange}/></label>
 
         </form>
