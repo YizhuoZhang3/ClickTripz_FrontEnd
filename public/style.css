@@ -159,7 +159,7 @@ h3{
   font-weight: lighter;
 }
 
-/* Site 1 styling */
+/* Site 1 && Site 2 styling */
 .heading-site1{
   width: 100%;
   padding: 4em 20em 6em 3em;
@@ -184,8 +184,12 @@ h3{
   justify-content: space-around;
 }
 
-.site1-products div{
+.product-wrap{
   width: 30%;
   margin: 0 auto;
   border: 1px #C8C6C6 solid;
+}
+
+.device{
+  margin: 0 2em;
 }
