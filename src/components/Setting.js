@@ -1,6 +1,7 @@
 import React from "react";
 import Switch from "./Switch";
 import { FcLock, FcStatistics, FcGlobe, FcMindMap} from "react-icons/fc";
+import UploadFile from "./UploadFile";
 
 export default function Setting({data}){
   return (
@@ -43,17 +44,19 @@ export default function Setting({data}){
 
           <div>
             <h3>Revenue</h3>
-            <div class="slidecontainer">
+            <form class="slidecontainer">
               <label id="slider-label" for="publisherShare">Current revenue share</label>
               <div className="myRange">
-              <input id="sliderbar" type="range" min="0.1" max="0.9" step="0.1" value={data.settings.revenue.publisherShare} name="publisherShare"/>
+              <input id="rangeInput" type="range" min="0.1" max="0.9" step="0.1" value={data.settings.revenue.publisherShare} name="publisherShare" oninput="outputId.value = rangeInput.value"/>
+              <output name="outputName" id="outputId" for="rangeInput">{data.settings.revenue.publisherShare}</output>
               </div>
-            </div>
+            </form>
           </div>
 
           <div>
             <h3>Document</h3>
             <p>Default Terms</p>
+            <UploadFile/>
           </div>
         </div>
       </div>
