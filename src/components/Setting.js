@@ -4,7 +4,10 @@ import { FcLock, FcStatistics, FcGlobe, FcMindMap} from "react-icons/fc";
 import UploadFile from "./UploadFile";
 import TimeZone from "./TimeZone";
 
-export default function Setting({data}){
+export default function Setting({data, handleChangeSetting, handleChangeAccountType, handleChangeRevenue}){
+  const enabled = "enabled";
+  const testPublisher="testPublisher";
+
   return (
     <div className="right-section">
       <div className="heading-setting">
@@ -17,22 +20,31 @@ export default function Setting({data}){
             <div>
               <div className="general">
                 <p><FcLock id="setting-icon"/>Enabled</p>
-                <Switch isToggled={data.settings.general.enabled}/>
+                <Switch 
+                  isToggled={data.settings.general.enabled}
+                  onToggle={handleChangeSetting} 
+                  name={enabled}/>
               </div>
               
               <div className="general">
                 <p><FcStatistics id="setting-icon"/>Test Publisher</p>
-                <Switch isToggled={data.settings.general.testPublisher}/>
+                <Switch 
+                  isToggled={data.settings.general.testPublisher} 
+                  onToggle={handleChangeSetting} 
+                  name={testPublisher}/>
               </div>
 
               <div className="general">
                 <p><FcGlobe id="setting-icon"/>Time Zone</p>
-                <div className="custom-dropdown small"><TimeZone /></div>
+                <div className="custom-dropdown small">
+                <TimeZone 
+                  value={data.settings.general.timezone}
+                  handleChangeAccountType={handleChangeAccountType}/></div>
               </div>
               <div className="general ">
                 <p><FcMindMap id="setting-icon"/>Account Type</p>
                 <div className="custom-dropdown small">
-                <select>
+                <select value={data.settings.general.accountType} name="accountType" onChange={handleChangeAccountType} >
                   <option value="CTZero">CTZero</option>
                   <option value="CTLite">CTLite</option>
                   <option value="CTPlus">CTPlus</option>
@@ -48,7 +60,16 @@ export default function Setting({data}){
             <form id="slidecontainer">
               <label id="slider-label" htmlFor="publisherShare">Current revenue share</label>
               <div className="myRange">
-              <input id="rangeInput" type="range" min="0.1" max="0.9" step="0.1" value={data.settings.revenue.publisherShare} name="publisherShare" onInput="outputId.value = rangeInput.value"/>
+              <input 
+                id="rangeInput" 
+                type="range" 
+                min="0.1" 
+                max="0.9" 
+                step="0.01" 
+                value={data.settings.revenue.publisherShare} 
+                onChange={handleChangeRevenue} 
+                name="publisherShare" 
+                onInput="outputId.value = rangeInput.value"/>
               <output name="outputName" id="outputId" htmlFor="rangeInput">{data.settings.revenue.publisherShare}</output>
               </div>
             </form>

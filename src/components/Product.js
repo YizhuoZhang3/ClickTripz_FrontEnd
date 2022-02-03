@@ -3,8 +3,7 @@ import Switch from "./Switch";
 
 export default function Product({product, onToggle}){
   const devices = product.devices;
-  console.log("device: ",devices)
-
+  console.log("device: ", devices)
   return (
       <div className="product-wrap">
         <h4>{product.type}</h4>
@@ -15,7 +14,9 @@ export default function Product({product, onToggle}){
               <p>{device.enabled.toString()}</p>
               <Switch 
                 isToggled={device.enabled}
-                onToggle={onToggle}/>
+                onToggle={onToggle}
+                
+                />
             </div>
           ))
         }

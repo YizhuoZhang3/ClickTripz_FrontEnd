@@ -39,7 +39,7 @@ export default function Home(){
   }
 
   const onToggle = (event) => {
-    const {checked} = event.target;
+    const {name, checked} = event.target;
     setData((prev) => ({
       ...prev,
       "sites": prev.sites.map((item) => ({
@@ -49,12 +49,47 @@ export default function Home(){
           "devices": type.devices.map((device) =>{
             return{
               ...device,
-              "enabled": checked
+              [name]: checked
             }
           })
         })) 
       }
       ))
+    }))
+  }
+
+  //this function for changing settings->general->enabled and test publisher
+  const handleChangeSetting = (event) => {
+    const {name, checked} = event.target;
+    setData((prev) => ({
+      ...prev,
+      settings: {...prev.settings, general:{
+        ...prev.settings.general,
+        [name]: checked
+      }}
+    }))
+  }
+
+  //this function for changing setting timezone and account type
+  const handleChangeAccountType = (eve) => {
+    const {name, value} = eve.target;
+    setData((prev) => ({
+      ...prev,
+      settings: {...prev.settings, general:{
+        ...prev.settings.general,
+        [name]: value
+      }}
+    }))
+  }
+
+  const handleChangeRevenue = (eve) => {
+    const {value} = eve.target;
+    setData((prev) => ({
+      ...prev,
+      settings: {...prev.settings, revenue:{
+        ...prev.settings.revenue,
+        "publisherShare": value
+      }}
     }))
   }
 
@@ -82,10 +117,16 @@ export default function Home(){
           <CompanyInfo 
             allData={allData} 
             handleSubmit={handleSubmit} 
-            handleChange={handleChange}/>
+            handleChange={handleChange}
+          />
         </TabPanel>
         <TabPanel>
-          <Setting data={allData}/>
+          <Setting 
+            data={allData}
+            handleChangeSetting={handleChangeSetting}
+            handleChangeAccountType={handleChangeAccountType}
+            handleChangeRevenue={handleChangeRevenue}
+            />
         </TabPanel>
         <TabPanel>
           <Site1 
