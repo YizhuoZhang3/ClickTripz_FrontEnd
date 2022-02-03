@@ -1,20 +1,7 @@
 import React from "react";
 import SiteInfo from "./SiteInfo"
 
-export default function Site1({setData, data, handleSubmit, onToggle}){
-
-  const handleSiteChange = (event) => {
-    const { name, value } = event.target;
-    setData((prevState) => ({
-      ...prevState,
-      "sites": prevState.sites.map((eachItem, idx) =>{
-        console.log("this is eachItem: ", eachItem, idx)
-        return{
-          ...eachItem,
-          [name]: value
-        }
-      })
-    }))}
+export default function Site1({ data, handleSubmit, onToggle, handleSite1InfoChange}){
 
   const site1Data = data.sites[0]
   const products = site1Data.activeProducts;
@@ -28,7 +15,7 @@ export default function Site1({setData, data, handleSubmit, onToggle}){
       <SiteInfo 
           siteData={site1Data} 
           products={products}
-          handleChange={handleSiteChange}
+          handleChange={handleSite1InfoChange}
           handleSubmit={handleSubmit}
           onToggle={onToggle}
         />

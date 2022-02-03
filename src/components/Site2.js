@@ -1,23 +1,10 @@
 import React from "react";
 import SiteInfo from "./SiteInfo";
 
-export default function Site2({setData, data, handleSubmit, onToggle}){
+export default function Site2({data, handleSubmit, onToggle, handleSite2InfoChange}){
   const siteData = data.sites[1]
   const products = siteData.activeProducts;
   console.log(products);
-
-  const handleSiteChange = (event) => {
-    const { name, value } = event.target;
-    setData((prevState) => ({
-      ...prevState,
-      "sites": prevState.sites.map((eachItem, idx) =>{
-        console.log("this is eachItem: ", eachItem, idx)
-        return{
-          ...eachItem,
-          [name]: value
-        }
-      })
-    }))}
 
   return (
     <div className="right-section">
@@ -27,7 +14,7 @@ export default function Site2({setData, data, handleSubmit, onToggle}){
         <SiteInfo 
           siteData={siteData} 
           products={products}
-          handleChange={handleSiteChange}
+          handleChange={handleSite2InfoChange}
           handleSubmit={handleSubmit}
           onToggle={onToggle}
         />

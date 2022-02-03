@@ -15,7 +15,6 @@ export default function Product({product, onToggle}){
               <Switch 
                 isToggled={device.enabled}
                 onToggle={onToggle}
-                
                 />
             </div>
           ))

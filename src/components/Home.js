@@ -38,24 +38,50 @@ export default function Home(){
     });
   }
 
-  const onToggle = (event) => {
+  //toggle active products type button
+  const handleProductToggle = (event) => {
+    let key = 1;
     const {name, checked} = event.target;
     setData((prev) => ({
       ...prev,
       "sites": prev.sites.map((item) => ({
         ...item,
-        "activeProducts": item.activeProducts.map((type) => ({
-          ...type,
-          "devices": type.devices.map((device) =>{
-            return{
-              ...device,
-              [name]: checked
-            }
+        "activeProducts": item.activeProducts.map((product) => ({
+          ...product,
+          "devices": product.devices.map((device) =>{
+              return{
+                ...device,
+                [name]: checked
+              }
           })
         })) 
       }
       ))
     }))
+  }
+
+  //this function for changing site information for site 1
+  const handleSite1InfoChange = (event) => {
+    let key = 0;
+    const { name, value } = event.target;
+    setData((prevState) => ({
+      ...prevState,
+      "sites": prevState.sites.map(eachItem =>(
+        prevState.sites.indexOf(eachItem) === key ? 
+        {...eachItem, [name]: value}: eachItem
+    ))}))
+  }
+
+  //this function for changing site information for site 2
+  const handleSite2InfoChange = (event) => {
+    let key = 1;
+    const { name, value } = event.target;
+    setData((prevState) => ({
+      ...prevState,
+      "sites": prevState.sites.map(eachItem =>(
+        prevState.sites.indexOf(eachItem) === key ? 
+        {...eachItem, [name]: value}: eachItem
+    ))}))
   }
 
   //this function for changing settings->general->enabled and test publisher
@@ -145,19 +171,17 @@ export default function Home(){
         <TabPanel>
           <Site1 
             data={allData} 
-            handleSubmit={handleSubmit} 
-            // handleChange={handleSiteChange}
-            setData={setData}
-            onToggle={onToggle}
+            handleSubmit={handleSubmit}
+            handleSite1InfoChange={handleSite1InfoChange} 
+            onToggle={handleProductToggle}
           />
         </TabPanel>
         <TabPanel>
           <Site2 
             data={allData} 
             handleSubmit={handleSubmit} 
-            // handleChange={handleSiteChange}
-            setData={setData}
-            onToggle={onToggle}
+            handleSite2InfoChange={handleSite2InfoChange}
+            onToggle={handleProductToggle}
           />
         </TabPanel>
 
