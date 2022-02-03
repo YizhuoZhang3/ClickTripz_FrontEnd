@@ -27,14 +27,16 @@ export default function Setting({data}){
                 <p><FcGlobe id="setting-icon"/>Time Zone</p>
                 <p id="switch-btn">{data.settings.general.timezone}</p>
               </div>
-              <div className="general">
+              <div className="general ">
                 <p><FcMindMap id="setting-icon"/>Account Type</p>
+                <div className="custom-dropdown small">
                 <select>
                   <option value="CTZero">CTZero</option>
                   <option value="CTLite">CTLite</option>
                   <option value="CTPlus">CTPlus</option>
                   <option value="CTPro">CTPro</option>
                 </select>
+                </div>
               </div>
           </div>
           </div>

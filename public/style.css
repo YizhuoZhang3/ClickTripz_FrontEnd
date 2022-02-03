@@ -154,6 +154,8 @@ h2{
 .setting h3{
   color: #FDB000;
   font-weight: lighter;
+  border-bottom: 1.5px solid #C8C6C6 ;
+  margin-bottom: 0.5rem;
 }
 
 /* Site 1 && Site 2 styling */
@@ -270,4 +272,67 @@ input:checked + .slider:before{
 
 #setting-icon{
   margin-right: 0.5rem;
+}
+
+/* selection box */
+.custom-dropdown {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  /* margin: 5px; */
+}
+
+.custom-dropdown select {
+  background-color: rgb(62, 177, 177);
+  color: #fff;
+  font-size: inherit;
+  padding: .2em;
+  padding-right: 2em; 
+  border: 0;
+  margin: 0;
+  border-radius: 3px;
+  text-indent: 0.01px;
+  text-overflow: '';
+  -webkit-appearance: button;
+}
+
+.custom-dropdown::before,
+.custom-dropdown::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.custom-dropdown::after {
+  content: "\25BC";
+  height: 1em;
+  font-size: .625em;
+  line-height: 1;
+  right: 1.2em;
+  top: 50%;
+  margin-top: -.5em;
+}
+
+.custom-dropdown::before {
+  width: 2em;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 0 3px 3px 0;
+}
+
+.custom-dropdown select[disabled] {
+  color: rgba(0,0,0,.3);
+}
+
+.custom-dropdown select[disabled]::after {
+  color: rgba(0,0,0,.1);
+}
+
+.custom-dropdown::before {
+  background-color: rgba(0,0,0,.15);
+}
+
+.custom-dropdown::after {
+  color: rgba(0,0,0,.4);
 }
