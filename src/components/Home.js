@@ -38,18 +38,6 @@ export default function Home(){
     });
   }
 
-  const handleSiteChange = (event) => {
-    const { name, value } = event.target;
-    setData((prevState) => ({
-      ...prevState,
-      "sites": prevState.sites.map((eachItem) =>{
-        return{
-          ...eachItem,
-          [name]: value
-        }
-      })
-    }))}
-
   const onToggle = (event) => {
     const {checked} = event.target;
     setData((prev) => ({
@@ -103,7 +91,8 @@ export default function Home(){
           <Site1 
             data={allData} 
             handleSubmit={handleSubmit} 
-            handleChange={handleSiteChange}
+            // handleChange={handleSiteChange}
+            setData={setData}
             onToggle={onToggle}
           />
         </TabPanel>
@@ -111,7 +100,8 @@ export default function Home(){
           <Site2 
             data={allData} 
             handleSubmit={handleSubmit} 
-            handleChange={handleSiteChange}
+            // handleChange={handleSiteChange}
+            setData={setData}
             onToggle={onToggle}
           />
         </TabPanel>

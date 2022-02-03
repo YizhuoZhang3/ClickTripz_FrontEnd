@@ -1,4 +1,5 @@
 import React from "react";
+import Switch from "./Switch";
 
 export default function Setting({data}){
   return (
@@ -10,12 +11,31 @@ export default function Setting({data}){
         <div className="setting">
           <div>
             <h3>General</h3>
-            <ul>
-              <li>Enabled</li>
-              <li>Test Publisher</li>
-              <li>Time Zone</li>
-              <li>Account Type</li>
-          </ul>
+            <div>
+              <div>
+                <p>Enabled</p>
+                <Switch isToggled={data.settings.general.enabled}/>
+              </div>
+              
+              <div>
+                <p>Test Publisher</p>
+                <Switch isToggled={data.settings.general.testPublisher}/>
+              </div>
+
+              <div>
+                <p>Time Zone</p>
+                <p>{data.settings.general.timezone}</p>
+              </div>
+              <div>
+                <p>Account Type</p>
+                <select>
+                  <option value="CTZero">CTZero</option>
+                  <option value="CTLite">CTLite</option>
+                  <option value="CTPlus">CTPlus</option>
+                  <option value="CTPro">CTPro</option>
+                </select>
+              </div>
+          </div>
           </div>
 
           <div>
@@ -24,6 +44,7 @@ export default function Setting({data}){
 
           <div>
             <h3>Document</h3>
+            <p>Default Terms</p>
           </div>
         </div>
       </div>
