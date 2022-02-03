@@ -43,6 +43,12 @@ export default function Setting({data}){
 
           <div>
             <h3>Revenue</h3>
+            <div class="slidecontainer">
+              <label id="slider-label" for="publisherShare">Current revenue share</label>
+              <div className="myRange">
+              <input id="sliderbar" type="range" min="0.1" max="0.9" step="0.1" value={data.settings.revenue.publisherShare} name="publisherShare"/>
+              </div>
+            </div>
           </div>
 
           <div>
