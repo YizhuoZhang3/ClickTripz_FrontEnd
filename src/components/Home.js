@@ -45,11 +45,10 @@ export default function Home(){
       "sites": prevState.sites.map((eachItem) =>{
         return{
           ...eachItem,
-          name: value
+          [name]: value
         }
       })
-    }))
-  }
+    }))}
 
   const onToggle = (event) => {
     const {checked} = event.target;
@@ -92,7 +91,10 @@ export default function Home(){
       
 
         <TabPanel>
-          <CompanyInfo allData={allData} handleSubmit={handleSubmit} handleChange={handleChange}/>
+          <CompanyInfo 
+            allData={allData} 
+            handleSubmit={handleSubmit} 
+            handleChange={handleChange}/>
         </TabPanel>
         <TabPanel>
           <Setting data={allData}/>
@@ -102,7 +104,6 @@ export default function Home(){
             data={allData} 
             handleSubmit={handleSubmit} 
             handleChange={handleSiteChange}
-           
             onToggle={onToggle}
           />
         </TabPanel>
