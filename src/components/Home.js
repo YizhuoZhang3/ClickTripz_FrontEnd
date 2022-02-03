@@ -38,6 +38,39 @@ export default function Home(){
     });
   }
 
+  const handleSiteChange = (event) => {
+    const { name, value } = event.target;
+    setData((prevState) => ({
+      ...prevState,
+      "sites": prevState.sites.map((eachItem) =>{
+        return{
+          ...eachItem,
+          name: value
+        }
+      })
+    }))
+  }
+
+  const onToggle = (event) => {
+    const {checked} = event.target;
+    setData((prev) => ({
+      ...prev,
+      "sites": prev.sites.map((item) => ({
+        ...item,
+        "activeProducts": item.activeProducts.map((type) => ({
+          ...type,
+          "devices": type.devices.map((device) =>{
+            return{
+              ...device,
+              "enabled": checked
+            }
+          })
+        })) 
+      }
+      ))
+    }))
+  }
+
   return (
     <div className="home-container">
       <Tabs>
@@ -65,10 +98,21 @@ export default function Home(){
           <Setting data={allData}/>
         </TabPanel>
         <TabPanel>
-          <Site1 data={allData}/>
+          <Site1 
+            data={allData} 
+            handleSubmit={handleSubmit} 
+            handleChange={handleSiteChange}
+           
+            onToggle={onToggle}
+          />
         </TabPanel>
         <TabPanel>
-          <Site2 data={allData}/>
+          <Site2 
+            data={allData} 
+            handleSubmit={handleSubmit} 
+            handleChange={handleSiteChange}
+            onToggle={onToggle}
+          />
         </TabPanel>
 
       </Tabs>

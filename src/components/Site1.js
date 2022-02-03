@@ -2,11 +2,10 @@ import React from "react";
 import Product from "./Product";
 import SiteInfo from "./SiteInfo"
 
-export default function Site1({data, handleChange, handleSubmit}){
+export default function Site1({data, handleChange, handleSubmit, onToggle}){
   const site1Data = data.sites[0]
   const products = site1Data.activeProducts;
   console.log(products)
-
   return (
     <div className="right-section">
 
@@ -18,6 +17,7 @@ export default function Site1({data, handleChange, handleSubmit}){
           products={products}
           handleChange={handleChange}
           handleSubmit={handleSubmit}
+          onToggle={onToggle}
         />
     </div>
   )

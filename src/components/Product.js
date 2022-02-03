@@ -1,6 +1,7 @@
 import React from "react";
+import Switch from "./Switch";
 
-export default function Product({product}){
+export default function Product({product, onToggle}){
   const devices = product.devices;
   console.log("device: ",devices)
 
@@ -11,7 +12,10 @@ export default function Product({product}){
           devices.map(device => (
             <div className='device' key={device.type}>
               <p>{device.type}</p>
-              <p>{device.enabled}</p>
+              <p>{device.enabled.toString()}</p>
+              <Switch 
+                isToggled={device.enabled}
+                onToggle={onToggle}/>
             </div>
           ))
         }

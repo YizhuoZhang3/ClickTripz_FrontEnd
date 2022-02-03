@@ -1,7 +1,7 @@
 import React from "react";
 import SiteInfo from "./SiteInfo";
 
-export default function Site2({data, handleChange, handleSubmit}){
+export default function Site2({data, handleChange, handleSubmit,isToggle, onToggle}){
   const siteData = data.sites[1]
   const products = siteData.activeProducts;
   console.log(products);
@@ -16,6 +16,7 @@ export default function Site2({data, handleChange, handleSubmit}){
           products={products}
           handleChange={handleChange}
           handleSubmit={handleSubmit}
+          onToggle={onToggle}
         />
     </div>
   )

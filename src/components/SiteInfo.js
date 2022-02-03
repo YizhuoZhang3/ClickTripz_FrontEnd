@@ -1,7 +1,7 @@
 import react from "react";
 import Product from "./Product";
 
-export default function SiteInfo({siteData, products, handleSubmit, handleChange}){
+export default function SiteInfo({siteData, products, handleSubmit, handleChange, onToggle}){
   return (
     <div className="content">
         <div className="site1">
@@ -26,7 +26,10 @@ export default function SiteInfo({siteData, products, handleSubmit, handleChange
             <div className="site1-products">
             {
               products.map(product => (
-                <Product product={product} key={product.type}/>
+                <Product 
+                  product={product} 
+                  key={product.type} 
+                  onToggle={onToggle}/>
               ))
             }
             </div>
