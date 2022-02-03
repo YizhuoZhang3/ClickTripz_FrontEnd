@@ -8,7 +8,7 @@ import cx from "classnames";
 
   return (
     <label className="switch">
-      <input type="checkbox" checked={isToggled} onChange={onToggle}/>
+      <input type="checkbox" checked={isToggled} onClick={onToggle}/>
       <span className={slideCX}/>
     </label>
   )

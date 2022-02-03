@@ -2,6 +2,7 @@ import React from "react";
 import Switch from "./Switch";
 import { FcLock, FcStatistics, FcGlobe, FcMindMap} from "react-icons/fc";
 import UploadFile from "./UploadFile";
+import TimeZone from "./TimeZone";
 
 export default function Setting({data}){
   return (
@@ -26,7 +27,7 @@ export default function Setting({data}){
 
               <div className="general">
                 <p><FcGlobe id="setting-icon"/>Time Zone</p>
-                <p id="switch-btn">{data.settings.general.timezone}</p>
+                <div className="custom-dropdown small"><TimeZone /></div>
               </div>
               <div className="general ">
                 <p><FcMindMap id="setting-icon"/>Account Type</p>
@@ -44,19 +45,22 @@ export default function Setting({data}){
 
           <div>
             <h3>Revenue</h3>
-            <form class="slidecontainer">
-              <label id="slider-label" for="publisherShare">Current revenue share</label>
+            <form id="slidecontainer">
+              <label id="slider-label" htmlFor="publisherShare">Current revenue share</label>
               <div className="myRange">
-              <input id="rangeInput" type="range" min="0.1" max="0.9" step="0.1" value={data.settings.revenue.publisherShare} name="publisherShare" oninput="outputId.value = rangeInput.value"/>
-              <output name="outputName" id="outputId" for="rangeInput">{data.settings.revenue.publisherShare}</output>
+              <input id="rangeInput" type="range" min="0.1" max="0.9" step="0.1" value={data.settings.revenue.publisherShare} name="publisherShare" onInput="outputId.value = rangeInput.value"/>
+              <output name="outputName" id="outputId" htmlFor="rangeInput">{data.settings.revenue.publisherShare}</output>
               </div>
             </form>
           </div>
 
           <div>
             <h3>Document</h3>
-            <p>Default Terms</p>
-            <UploadFile/>
+            <div className="doc">
+              <p>Default Terms</p>
+              <Switch isToggled={data.settings.document.defaultTerms}/>
+            </div>
+            <UploadFile />
           </div>
         </div>
       </div>
