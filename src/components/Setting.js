@@ -4,7 +4,7 @@ import { FcLock, FcStatistics, FcGlobe, FcMindMap} from "react-icons/fc";
 import UploadFile from "./UploadFile";
 import TimeZone from "./TimeZone";
 
-export default function Setting({data, handleChangeSetting, handleChangeAccountType, handleChangeRevenue}){
+export default function Setting({data, handleChangeSetting, handleChangeAccountType, handleChangeRevenue, handleChangeTerm}){
   const enabled = "enabled";
   const testPublisher="testPublisher";
 
@@ -79,7 +79,10 @@ export default function Setting({data, handleChangeSetting, handleChangeAccountT
             <h3>Document</h3>
             <div className="doc">
               <p>Default Terms</p>
-              <Switch isToggled={data.settings.document.defaultTerms}/>
+              <Switch 
+                isToggled={data.settings.document.defaultTerms}
+                onToggle={handleChangeTerm}
+                />
             </div>
             <UploadFile />
           </div>

@@ -82,6 +82,7 @@ export default function Home(){
     }))
   }
 
+  //this function for change revenue share
   const handleChangeRevenue = (eve) => {
     const {value} = eve.target;
     setData((prev) => ({
@@ -89,6 +90,18 @@ export default function Home(){
       settings: {...prev.settings, revenue:{
         ...prev.settings.revenue,
         "publisherShare": value
+      }}
+    }))
+  }
+
+  //this fucntion for change document default terms
+  const handleChangeTerm = (eve) => {
+    const {checked} = eve.target;
+    setData((prev) => ({
+      ...prev,
+      settings: {...prev.settings, document:{
+        ...prev.settings.document,
+        "defaultTerms": checked
       }}
     }))
   }
@@ -126,6 +139,7 @@ export default function Home(){
             handleChangeSetting={handleChangeSetting}
             handleChangeAccountType={handleChangeAccountType}
             handleChangeRevenue={handleChangeRevenue}
+            handleChangeTerm={handleChangeTerm}
             />
         </TabPanel>
         <TabPanel>
