@@ -1,5 +1,6 @@
 import React from "react";
 import Switch from "./Switch";
+import { FcLock, FcStatistics, FcGlobe, FcMindMap} from "react-icons/fc";
 
 export default function Setting({data}){
   return (
@@ -12,22 +13,22 @@ export default function Setting({data}){
           <div>
             <h3>General</h3>
             <div>
-              <div>
-                <p>Enabled</p>
+              <div className="general">
+                <p><FcLock id="setting-icon"/>Enabled</p>
                 <Switch isToggled={data.settings.general.enabled}/>
               </div>
               
-              <div>
-                <p>Test Publisher</p>
+              <div className="general">
+                <p><FcStatistics id="setting-icon"/>Test Publisher</p>
                 <Switch isToggled={data.settings.general.testPublisher}/>
               </div>
 
-              <div>
-                <p>Time Zone</p>
-                <p>{data.settings.general.timezone}</p>
+              <div className="general">
+                <p><FcGlobe id="setting-icon"/>Time Zone</p>
+                <p id="switch-btn">{data.settings.general.timezone}</p>
               </div>
-              <div>
-                <p>Account Type</p>
+              <div className="general">
+                <p><FcMindMap id="setting-icon"/>Account Type</p>
                 <select>
                   <option value="CTZero">CTZero</option>
                   <option value="CTLite">CTLite</option>
