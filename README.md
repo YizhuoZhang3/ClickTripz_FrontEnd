@@ -34,5 +34,8 @@ There are 4 pages, each page presents in different colors and shows different co
 
 The future of this project can work on the media screen design for different screen sizes. It currently only designs for laptop. Maybe can add media type of tablet and mobile.
 
+## Other resources
+Figma design: [https://www.figma.com/file/y9ZXFybz4l7mORylAuvvb6/clickTripz]
+
 
 
