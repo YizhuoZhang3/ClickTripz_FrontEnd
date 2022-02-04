@@ -40,23 +40,22 @@ export default function Home(){
 
   //toggle active products type button
   const handleProductToggle = (event) => {
-    let key = 1;
-    const {name, checked} = event.target;
+    const {name, checked, id} = event.target;
+    console.log(typeof id)
+
     setData((prev) => ({
       ...prev,
       "sites": prev.sites.map((item) => ({
         ...item,
         "activeProducts": item.activeProducts.map((product) => ({
           ...product,
-          "devices": product.devices.map((device) =>{
-              return{
-                ...device,
-                [name]: checked
-              }
-          })
+          "devices": product.devices.map((device) =>(
+            device.id === parseInt(id) ?
+            {...device, [name]: checked} : device
+        ))
         })) 
       }
-      ))
+    ))
     }))
   }
 
@@ -69,7 +68,8 @@ export default function Home(){
       "sites": prevState.sites.map(eachItem =>(
         prevState.sites.indexOf(eachItem) === key ? 
         {...eachItem, [name]: value}: eachItem
-    ))}))
+    ))
+  }))
   }
 
   //this function for changing site information for site 2

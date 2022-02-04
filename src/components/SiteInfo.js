@@ -29,7 +29,8 @@ export default function SiteInfo({siteData, products, handleSubmit, handleChange
                 <Product 
                   product={product} 
                   key={product.type} 
-                  onToggle={onToggle}/>
+                  onToggle={onToggle}
+                />
               ))
             }
             </div>
