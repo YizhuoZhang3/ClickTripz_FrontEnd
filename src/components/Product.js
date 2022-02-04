@@ -11,7 +11,6 @@ export default function Product({product, onToggle, siteNum}){
           devices.map(device => (
             <div className='device' key={device.type}>
               <p>{device.type}</p>
-              <p>{device.enabled.toString()}</p>
               <Switch 
                 isToggled={device.enabled}
                 onToggle={onToggle}
