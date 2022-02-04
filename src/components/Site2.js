@@ -17,6 +17,7 @@ export default function Site2({data, handleSubmit, onToggle, handleSite2InfoChan
           handleChange={handleSite2InfoChange}
           handleSubmit={handleSubmit}
           onToggle={onToggle}
+          siteNum={2}
         />
     </div>
   )
