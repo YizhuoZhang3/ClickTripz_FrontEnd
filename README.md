@@ -1,6 +1,7 @@
 # ClickTripz Front-end Challenge
 
 This project was created for ClickTripz, Front-end take-home assignment. 
+[https://clicktripz.herokuapp.com/
 
 ## Tech Stack
 
