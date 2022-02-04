@@ -15,11 +15,10 @@ This project was created for ClickTripz, Front-end take-home assignment.
 
 There are 4 pages, each page presents in different colors and shows different content
 
-![screen1](./public/img/screen1.png) ![screen2](./public/img/screen2.png) ![screen3](./public/img/screen3.png) ![screen4](./public/img/screen4.png)
-<img src="./public/img/screen1.png" width="50"/>
-<img src="./public/img/screen2.png" width="50"/>
-<img src="./public/img/screen3.png" width="50"/>
-<img src="./public/img/screen4.png" width="50"/>
+<img src="./public/img/screen1.png" width="128"/>
+<img src="./public/img/screen2.png" width="128"/>
+<img src="./public/img/screen3.png" width="128"/>
+<img src="./public/img/screen4.png" width="128"/>
 
 ## Getting Started
 
