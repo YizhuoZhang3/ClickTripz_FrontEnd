@@ -15,6 +15,8 @@ This project was created for ClickTripz, Front-end take-home assignment.
 
 There are 4 pages, each page presents in different colors and shows different content
 
+![plot](./public/img/screen1.png)
+
 ## Getting Started
 
 1. Fork and clone this repo, then npm install
